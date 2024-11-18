@@ -3,7 +3,9 @@ package com.mycompany.xml_evaluable.repository;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -41,10 +43,25 @@ public class RssRepository {
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
                    Element element = (Element) node;
                     String title = element.getElementsByTagName("title").item(0).getTextContent();
+                    String fechaStr = element.getElementsByTagName("pubDate").item(0).getTextContent();
+                    String autor = element.getElementsByTagName("author").item(0) != null ? 
+                                    element.getElementsByTagName("author").item(0).getTextContent() : "Desconocido";
+
+                    String link = element.getElementsByTagName("link").item(0).getTextContent();
+
+                    //Convertimos a Date
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss Z");
+                    Date  date = dateFormat.parse(fechaStr);
+
+                    //Creamos el objeto RSS
+                    RSS rssItem = new RSS(title, date, autor, link);
+                    rss.add(rssItem);
+
                 }
             }
             
         } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
             e.printStackTrace();
         }
 
