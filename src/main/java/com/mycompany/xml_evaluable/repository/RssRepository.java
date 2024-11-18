@@ -4,7 +4,6 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -19,8 +18,8 @@ import com.mycompany.xml_evaluable.model.RSS;
 
 public class RssRepository {
 
-    public ArrayList<RSS> getRSS(String URL){
-        ArrayList<RSS> rss = new ArrayList<>();
+    public RSS getRSS(String URL){
+        RSS rssItem = new RSS();
 
         try {
             //Conectamos a la URL
@@ -54,8 +53,8 @@ public class RssRepository {
                     Date  date = dateFormat.parse(fechaStr);
 
                     //Creamos el objeto RSS
-                    RSS rssItem = new RSS(title, date, autor, link);
-                    rss.add(rssItem);
+                     rssItem = new RSS(title, date, autor, link);
+                    
 
                 }
             }
@@ -65,7 +64,7 @@ public class RssRepository {
             e.printStackTrace();
         }
 
-        return rss;
+        return rssItem;
     }
 
 }
