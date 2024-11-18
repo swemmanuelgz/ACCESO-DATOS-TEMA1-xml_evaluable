@@ -5,6 +5,8 @@
 
 package com.mycompany.xml_evaluable;
 
+import com.mycompany.xml_evaluable.model.RSS;
+
 /**
  *
  * @author damdu217
@@ -13,5 +15,7 @@ public class Xml_evaluable {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
+        RSS rss = new RSS();
+        
     }
 }
