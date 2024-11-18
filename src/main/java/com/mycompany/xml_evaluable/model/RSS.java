@@ -71,6 +71,13 @@ public class RSS {
         URL = uRL;
     }
 
+
+
+    @Override
+    public String toString() {
+        return "RSS [titulo=" + titulo + "\n fecha=" + fecha + "\nAutor=" + Autor + "\n URL=" + URL + "]";
+    }
+
     
 
     

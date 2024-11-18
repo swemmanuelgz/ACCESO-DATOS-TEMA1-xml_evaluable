@@ -5,6 +5,7 @@
 
 package com.mycompany.xml_evaluable.view;
 
+import com.mycompany.xml_evaluable.controller.RssController;
 import com.mycompany.xml_evaluable.model.RSS;
 
 /**
@@ -15,7 +16,10 @@ public class Xml_evaluable {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
-        RSS rss = new RSS();
+        RssController rssController = new RssController();
+        String URL ="https://www.europapress.es/rss/rss.aspx?buscar=inteligencia-artificial";
+        RSS rssItem = rssController.getRSS(URL);
+        System.out.println(rssItem.toString());
         
     }
 }
