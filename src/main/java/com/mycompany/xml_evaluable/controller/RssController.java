@@ -7,6 +7,7 @@ public class RssController {
     private RssRepository rssRepository;
 
     public RssController() {
+        this.rssRepository = new RssRepository();
     }
 
     public RssController(RssRepository rssRepository) {

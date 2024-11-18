@@ -49,7 +49,7 @@ public class RssRepository {
                     String link = element.getElementsByTagName("link").item(0).getTextContent();
 
                     //Convertimos a Date
-                    SimpleDateFormat dateFormat = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss Z");
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss Z", java.util.Locale.ENGLISH);
                     Date  date = dateFormat.parse(fechaStr);
 
                     //Creamos el objeto RSS
