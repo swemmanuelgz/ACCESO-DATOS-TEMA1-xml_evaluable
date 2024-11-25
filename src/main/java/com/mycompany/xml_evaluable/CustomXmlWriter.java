@@ -19,7 +19,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import com.mycompany.xml_evaluable.model.RSS;
 
-public class Xml_writter {
+public class CustomXmlWriter {
     public void writeXML(String fileName, List<RSS> rssItems) {
         try {
             // Crear el documento XML
