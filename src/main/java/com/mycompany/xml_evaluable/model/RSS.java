@@ -3,6 +3,7 @@ package com.mycompany.xml_evaluable.model;
 import java.util.Date;
 
 
+
 public class RSS {
     private String titulo;
     private Date fecha;
