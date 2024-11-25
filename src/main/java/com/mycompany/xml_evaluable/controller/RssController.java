@@ -1,5 +1,7 @@
 package com.mycompany.xml_evaluable.controller;
 
+import java.util.List;
+
 import com.mycompany.xml_evaluable.model.RSS;
 import com.mycompany.xml_evaluable.repository.RssRepository;
 
@@ -14,7 +16,7 @@ public class RssController {
         this.rssRepository = rssRepository;
     }
     
-    public RSS getRSS(String URL) {
+    public List<RSS> getRSS(String URL) {
         return rssRepository.getRSS(URL);
     }
 
