@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.sql.rowset.spi.XmlWriter;
 
+import com.mycompany.xml_evaluable.CustomXmlWriter;
 import com.mycompany.xml_evaluable.controller.RssController;
 import com.mycompany.xml_evaluable.model.RSS;
 
@@ -19,26 +20,28 @@ import com.mycompany.xml_evaluable.model.RSS;
 public class Xml_evaluable {
 
     public static void main(String[] args) {
-        //Codigos de colores para el console
         String ANSI_RESET = "\u001B[0m";
         String ANSI_GREEN = "\u001B[32m";
 
-        // URL del feed RSS
-        String URL = "https://www.europapress.es/rss/rss.aspx?buscar=inteligencia-artificial";
+        System.out.println("Hello World!");
 
-        // Crear un objeto RssController
+        // Controlador para manejar la lógica RSS
         RssController rssController = new RssController();
+        String url = "https://www.europapress.es/rss/rss.aspx?buscar=inteligencia-artificial";
 
-        // Obtener los elementos RSS como una lista
-        List<RSS> rssItems = rssController.getRSS(URL);
+        // Obtener la lista de elementos RSS
+        List<RSS> rssItems = (List<RSS>) rssController.getRSS(url);
 
-        // Mostrar los artículos en consola
+        // Imprimir en consola los elementos obtenidos
         for (RSS item : rssItems) {
             System.out.println(ANSI_GREEN + item.toString() + ANSI_RESET);
         }
 
-        // Crear un objeto XmlWriter y escribir el XML
-        XmlWriter xmlWriter = new XmlWriter();
-        xmlWriter.writeXML("25-11-2024-list.xml", rssItems);
+        // Crear archivo XML
+        CustomXmlWriter xmlWriter = new CustomXmlWriter();
+        String fileName = "25-11-2024-list.xml";
+        xmlWriter.writeXML(fileName, rssItems);
+
+        System.out.println("Archivo XML generado exitosamente: " + fileName);
     }
 }
